@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b4292561-f227-42aa-b260-0ab186dd159b/deploy-status)](https://app.netlify.com/sites/serene-meitner-542bf0/deploys)
-
 * Tjerk Noordraven
 
 To start development
@@ -12,3 +10,8 @@ To start build
 ```
 yarn build
 ```
+
+Orignial settings
+A: 34.240.160.162
+CNAME: hosting-1b.mijndomein-ws.nl
+SFTP: sftp-1b.mijndomein-ws.nl
