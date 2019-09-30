@@ -31,7 +31,7 @@ const Book = ({ data: { prismicBook } }) => {
                   className="u-pt-1 u-pt-2 u-color--white u-lead"
                   dangerouslySetInnerHTML={{ __html: data.book_description.html }}>
                 </p>
-                <a href={data.book_affiniate_link.url} className="u-btn-primary u-btn-primary--sml">Bestel nu</a>
+                <a href={data.book_affiniate_link.url} target="_blank" rel="noopener noreferrer" className="u-btn-primary u-btn-primary--sml">Bestel nu</a>
               </div>
             </div>
           </div>

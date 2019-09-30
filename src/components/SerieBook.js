@@ -19,7 +19,7 @@ class SerieBooks extends React.Component {
             }}
           ></p>
           <a href={`/${this.props.uid}`} className="u-btn-primary">Bekijk</a>
-          <a href={this.props.aff_link} className="u-btn-primary">Bestel</a>
+          <a href={this.props.aff_link} target="_blank" rel="noopener noreferrer" className="u-btn-primary">Bestel</a>
         </div>
       </React.Fragment>
     )
