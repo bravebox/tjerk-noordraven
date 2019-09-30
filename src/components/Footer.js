@@ -18,13 +18,13 @@ class Footer extends React.Component {
             </a>
             <a href="https://www.youtube.com/channel/UCDdHl4ZR4kjbK72DXm74bZQ/videos/">
               <i className="socicon socicon-youtube icon icon--xl"></i>
-              <span>Youtube</span>
+              <span>YouTube</span>
             </a>
           </nav>
           <div className="u-p-2 u-text--c">
             <h4 className="u-m-0 primary">Copyright {DateObj.getFullYear()} - Tjerk Noordraven</h4>
             <p className="u-color--muted">
-              Fotografie: Bart van Dieken, Vincent Kos | Website: Mick Schouten (bravebox.io)
+              Fotografie: Vincent Kos | Website: Mick Schouten (bravebox.io)
             </p>
           </div>
         </div>
