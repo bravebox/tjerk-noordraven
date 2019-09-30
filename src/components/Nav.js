@@ -27,7 +27,7 @@ class Nav extends React.Component {
     return(
       <React.Fragment>
         <div className={`vs-nav-container header${this.state.menuOpen ? ' is-open' : ''}`} id="header">
-          <button type="button" class="vs-nav-trigger" onClick={this.toggleMenu}>menu</button>
+          <button type="button" className="vs-nav-trigger" onClick={this.toggleMenu}>menu</button>
           <nav className="vs-nav">
             <Link to="/">Home</Link>
             <a href="/series" className="vs-nav--series-d" id="seriesBtn" onClick={this.toggleSerieMenu}>Series</a>
@@ -62,7 +62,7 @@ class Nav extends React.Component {
                     alt="Het-boek-van-wonderlijke-wezens-die-werkelijk-bestaan-xs.png" />
                   </Link>
                 </div>
-                <Link className="vs-serie-link" to="/de-engste-serie-ooit">> Monsterwereld</Link>
+                <Link className="vs-serie-link" to="/monsterwereld">> Monsterwereld</Link>
               </div>
 
             </div>

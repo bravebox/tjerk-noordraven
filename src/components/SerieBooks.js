@@ -10,7 +10,7 @@ class SerieBooks extends React.Component {
         title={item.node.data.book_title.text}
         description={item.node.data.book_description.html}
         cover={item.node.data.book_cover.url}
-        aff_link={(item.node.data.book_affiniate_link) ? item.node.data.book_affiniate_link : '/'}
+        aff_link={(item.node.data.book_affiniate_link) ? item.node.data.book_affiniate_link.url : '/'}
         uid={item.node.uid}>
       </SerieBook>
     ))
