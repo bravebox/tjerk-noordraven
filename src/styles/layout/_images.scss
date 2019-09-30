@@ -20,7 +20,7 @@
 }
 
 .vs-photo-banner-intro {
-  padding: 1rem;
+  padding: 2rem 3rem;
   @media (min-width: 993px) {
     position: absolute;
     z-index: 10;
@@ -29,6 +29,6 @@
     left: 4rem;
     width: 320px;
     height: 260px;
-    padding: 2rem 3rem;
+    padding: 0;
   }
 }
