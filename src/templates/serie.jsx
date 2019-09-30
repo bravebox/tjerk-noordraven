@@ -31,7 +31,6 @@ const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
                   __html: data.serie_content.html,
                 }}
               ></p>
-
             </div>
           </div>
         </section>
