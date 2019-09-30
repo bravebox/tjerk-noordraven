@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet"
 
 const Book = ({ data: { prismicBook } }) => {
   const { data } = prismicBook
-  console.log(prismicBook);
   return (
     <React.Fragment>
       <Helmet>
