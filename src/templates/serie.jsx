@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet"
 const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
   const { data } = prismicSerie;
   const bookItems = allPrismicBook.edges;
+  console.log('serie:', data);
   return (
     <React.Fragment>
       <PageLayout>
