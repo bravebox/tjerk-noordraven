@@ -29,7 +29,7 @@ const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
               <h2>{data.serie_title.text}</h2>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: data.serie_content.html,
+                  __html: data.serie_content.html
                 }}
               ></p>
             </div>
