@@ -1,0 +1,93 @@
+
+
+.vs-agenda {
+  display: flex;
+  flex-direction: column
+}
+
+.vs-agenda-item {
+  margin: 1rem 0;
+}
+
+// Series
+.vs-series {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.vs-series > div {
+  margin: 0 .500rem 1rem 0;
+  width: fit-content;
+  flex: 0 0 86%;
+  @media(min-width: 993px) {
+    flex: 0 0 48%;
+  }
+}
+
+.vs-serie__img {
+  min-height: 240px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Books in serie
+// .vs-books-in-series {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+.vs-serie-book {
+  flex: 1 1 50%;
+  max-width: 50%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+// Photo banner
+.vs-photo-banner {
+  position: relative;
+}
+
+.vs-photo-banner--as-section {
+  width: 116%;
+  margin-left: -8%;
+}
+
+.mobile-center-text {
+  text-align: center;
+}
+
+@media (min-width: 993px) {
+  .mobile-center-text {
+    text-align: initial;
+  }
+}
+
+
+
+.s-gallery {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.s-gallery > li {
+  flex: 1 1 auto;
+  width: 100px;
+  margin: 1rem;
+}
+
+.special-list {
+  list-style: upper-roman;
+  margin: 1.25rem;
+}
+
+.vs-main-book-cover {
+  max-width: 86%;
+  @media(min-width: 992px) {
+    max-width: 320px;
+  }
+}

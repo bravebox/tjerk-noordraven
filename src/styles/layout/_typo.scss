@@ -1,0 +1,39 @@
+.vs-copy {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $primary;
+  }
+  li,
+  p {
+    color: #fff;
+    line-height: 1.5;
+    margin-top: 0;
+  }
+  p.u-lead {
+    font-size: 1.125rem;
+  }
+}
+
+.vs-copy a:not(.u-btn-primary) {
+  color: $primary;
+  text-decoration: none;
+}
+
+.vs-copy a:hover {
+  color: $primary;
+  text-decoration: underline !important;
+}
+
+.vs-pagebanner {
+  width: 120%;
+  margin-left: -10%;
+  margin-bottom: 1.500rem;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

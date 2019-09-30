@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
+
+body {
+  background: #33302e url(/img/background.png) top center repeat-x !important;
+  font-weight: 400;
+  color: #fff;
+}
+
+strong {
+  font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin: 0 0 .875rem 0;
+}
+
+[data-oembed] {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+  height: 0;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+}

@@ -1,0 +1,9 @@
+.vs-section {
+  display: block;
+  &--rock {
+    padding: 0 2rem;
+    @media(min-width: 993px) {
+      padding: 0 4rem;
+    }
+  }
+}
