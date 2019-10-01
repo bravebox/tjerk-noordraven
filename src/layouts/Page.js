@@ -23,7 +23,7 @@ class Page extends React.Component {
         <div className="vs-site">
           <Nav />
           <div className="vs-content-container">
-          <div className={`vs-pageloader ${this.state.showLoader ? 'is-active' : 'is-not-active'}`}>
+            <div className={`vs-pageloader ${this.state.showLoader ? 'is-active' : 'is-not-active'}`}>
               <img src="/img/status.gif" alt="status.gif" />
             </div>
             <HeaderPage />

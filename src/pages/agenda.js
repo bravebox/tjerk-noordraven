@@ -27,8 +27,8 @@ const Agenda = ({ data: { prismicAgenda } }) => {
           <meta name="description" content="Kom naar een lezing, signeersessie of auteursbezoek van schrijver Tjerk Noordraven. Alle data van optredens vind je hier." />
           <link rel="canonical" href="http://www.tjerknoordraven.com/agenda/" />
         </Helmet>
+        <Nav />
         <PageLayout>
-          <Nav />
           <div className="row u-pt-4 u-pb-4">
             <div className="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
               <div className="vs-copy">
