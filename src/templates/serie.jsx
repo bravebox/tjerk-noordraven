@@ -61,7 +61,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allPrismicBook(filter: {data: {link: {uid: {eq: $uid}}}}) {
+    allPrismicBook(filter: {data: {link: {uid: {eq: $uid}}}}, sort: {fields: data___order}) {
       edges {
         node {
           uid
@@ -80,6 +80,7 @@ export const pageQuery = graphql`
               url
               target
             }
+            order
           }
         }
       }
