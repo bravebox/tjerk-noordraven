@@ -2,6 +2,9 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://www.tjerknoordraven.com`,
+  },
   plugins: [
     {
       resolve: `gatsby-source-prismic`,
@@ -19,5 +22,6 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
   ],
 }
