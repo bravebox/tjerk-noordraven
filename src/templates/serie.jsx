@@ -8,7 +8,10 @@ const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
   const { data } = prismicSerie;
   const bookItems = allPrismicBook.edges;
 
-  console.log(data.serie_content.html);
+  const createHtmlMarkUp = () => {
+    debugger;
+    return {__html: data.serie_content.html}
+  }
 
   return (
     <React.Fragment>
@@ -29,11 +32,7 @@ const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
                 />
               </div>
               <h2>{data.serie_title.text}</h2>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: data.serie_content.html
-                }}
-              ></p>
+              <p dangerouslySetInnerHTML={createHtmlMarkUp()}></p>
             </div>
           </div>
         </section>
