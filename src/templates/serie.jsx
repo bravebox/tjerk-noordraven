@@ -32,7 +32,7 @@ const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
                 />
               </div>
               <h2>{data.serie_title.text}</h2>
-              <p dangerouslySetInnerHTML={createHtmlMarkUp()}></p>
+              <div dangerouslySetInnerHTML={createHtmlMarkUp()}></div>
             </div>
           </div>
         </section>
