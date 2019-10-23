@@ -7,6 +7,9 @@ import { Helmet } from "react-helmet"
 const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
   const { data } = prismicSerie;
   const bookItems = allPrismicBook.edges;
+
+  console.log(data.serie_content.html);
+
   return (
     <React.Fragment>
       <PageLayout>
@@ -53,7 +56,6 @@ export const pageQuery = graphql`
           text
         }
         serie_description {
-          html
           text
         }
         serie_content {
