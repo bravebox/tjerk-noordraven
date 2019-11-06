@@ -9,7 +9,6 @@ const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
   const bookItems = allPrismicBook.edges;
 
   const createHtmlMarkUp = () => {
-    debugger;
     return {__html: data.serie_content.html}
   }
 

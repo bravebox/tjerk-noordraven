@@ -8,7 +8,7 @@ import PageBlockSpecial from "../components/PageBlockSpecial"
 import PageBlockSeries from "../components/PageBlockSeries"
 import SiteContext from '../context/SiteContext'
 
-const Index = ({ data: { prismicHome, allPrismicSerie } }) => {
+const Index = ({data}) => {
   const context = useContext(SiteContext);
   return (
     <React.Fragment>
@@ -18,19 +18,19 @@ const Index = ({ data: { prismicHome, allPrismicSerie } }) => {
         <meta name="description" content="De officiële website van kinderboekenschrijver Tjerk Noordraven, auteur van o.a. De Engste Serie Ooit en Giel en de Geesten: horror voor kinderen." />
         <link rel="canonical" href="http://www.tjerknoordraven.com/" />
       </Helmet>
-      <Home>
-        <PageBlock body={prismicHome.data.home_content.html}></PageBlock>
+      <Home series={data.series} grouped_books_by_serie={data.grouped_books_by_serie}>
+        <PageBlock body={data.home.data.home_content.html}></PageBlock>
 
         <PageBlockSpecial
           image="/img/tjerk-noordraven-home.png"
-          title={prismicHome.data.about_title.text}
-          content={prismicHome.data.about_content.html}
-          link={prismicHome.data.about_link.url}
+          title={data.home.data.about_title.text}
+          content={data.home.data.about_content.html}
+          link={data.home.data.about_link.url}
         ></PageBlockSpecial>
 
-        <PageBlock body={prismicHome.data.home_content_after.html}></PageBlock>
+        <PageBlock body={data.home.data.home_content_after.html}></PageBlock>
 
-        <PageBlockSeries series={allPrismicSerie}></PageBlockSeries>
+        <PageBlockSeries series={data.series}></PageBlockSeries>
       </Home>
     </React.Fragment>
   )
@@ -39,8 +39,8 @@ const Index = ({ data: { prismicHome, allPrismicSerie } }) => {
 export default Index
 
 export const pageQuery = graphql`
-  query IndexQuery {
-    prismicHome {
+  query {
+    home: prismicHome {
       data {
         home_title {
           text
@@ -69,7 +69,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allPrismicSerie {
+    series: allPrismicSerie {
       edges {
         node {
           uid
@@ -81,6 +81,24 @@ export const pageQuery = graphql`
               text
             }
             serie_cover {
+              url
+            }
+          }
+        }
+      }
+    }
+    books: allPrismicBook {
+      edges {
+        node {
+          uid
+          data {
+            book_title {
+              text
+            }
+            book_description {
+              text
+            }
+            book_cover {
               url
             }
           }

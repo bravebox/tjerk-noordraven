@@ -4,7 +4,6 @@ import Footer from "../components/Footer"
 import HeaderHome from "../components/HeaderHome"
 import "../styles/main.scss"
 
-// export default ({ children }) => (
 class Home extends React.Component {
   constructor(props) {
     super(props);

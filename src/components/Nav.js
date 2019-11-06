@@ -1,9 +1,51 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { StaticQuery, graphql } from "gatsby"
+
+function BookList(props) {
+  const series = props.series;
+  const booksData = props.books;
+
+  const serieList = series.map((serie, index) => {
+    const books = booksData.filter(result => {
+      return result.edges[0].node.data.link.uid === serie.node.uid;
+    });
+
+    let booksBlock;
+    if(books.length) {
+      booksBlock = books[0].edges.map((book, index) => (
+        <div key={`item-${index}`} className="vs-serie-menu__book">
+          <span>{book.node.data.book_title.text} </span>
+          <Link to={`/${book.node.uid}`}>bekijk </Link>
+          <a href={book.node.data.book_affiniate_link.url} rel="noopener noreferrer" target="_blank">bestel </a>
+        </div>
+      ))
+    }
+
+    return (
+      <div key={`item-${index}`} className="vs-serie-menu__serie">
+        <div className="vs-serie-menu__cover">
+          <img
+            src={serie.node.data.serie_cover.url}
+            alt="Serie Cover"
+          />
+        </div>
+        <div className="vs-serie-menu__details">
+          <h3>{serie.node.data.serie_title.text} <Link to={`/${serie.node.uid}`}>bekijk</Link></h3>
+          {booksBlock}
+        </div>
+      </div>
+    )
+  });
+
+  return (
+    <div className="vs-booklist">{serieList}</div>
+  );
+}
 
 class Nav extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       menuOpen: false,
@@ -41,30 +83,9 @@ class Nav extends React.Component {
           </nav>
           <div className={`vs-series-menu vs-series-menu--${this.state.seriesMenuOpen}`}>
             <div className="vs-series-menu__bg">
-              <div className="vs-series-menu__serie">
-                <div className="vs-series-menu__books">
-                  <Link className="vs-series-menu__book" to="/het-nieuwe-spookhuis">
-                    <img src="/img/het-nieuwe-spookhuis-xs.png" alt="het-nieuwe-spookhuis-xs.png" />
-                  </Link>
-                  <Link className="vs-series-menu__book" to="/de-transsylvanie-express">
-                    <img src="/img/transsylvanie-express-xs.png" alt="transsylvanie-express-xs.png" />
-                  </Link>
-                  <Link className="vs-series-menu__book" to="/de-horrorhoeve">
-                    <img src="/img/de-horrorhoeve-xs.png" alt="de-horrorhoeve-xs.png" />
-                  </Link>
-                </div>
-                <Link className="vs-serie-link" to="/de-engste-serie-ooit">> De engste serie ooit</Link>
-              </div>
-              <div className="vs-series-menu__serie">
-                <div className="vs-series-menu__books">
-                  <Link className="vs-series-menu__book" to="/het-boek-van-wonderlijke-wezens-die-werkelijk-bestaan">
-                    <img src="/img/Het-boek-van-wonderlijke-wezens-die-werkelijk-bestaan-xs.png"
-                    alt="Het-boek-van-wonderlijke-wezens-die-werkelijk-bestaan-xs.png" />
-                  </Link>
-                </div>
-                <Link className="vs-serie-link" to="/monsterwereld">> Monsterwereld</Link>
-              </div>
-
+              <BookList
+                series={this.props.series.edges}
+                books={this.props.grouped_books_by_serie.group} />
             </div>
           </div>
         </div>
@@ -74,5 +95,57 @@ class Nav extends React.Component {
 }
 
 export default props => (
-  <Nav {...props}/>
+  <StaticQuery
+    query={graphql`
+      query {
+        series: allPrismicSerie(sort: {fields: data___order}) {
+          edges {
+            node {
+              uid
+              data {
+                serie_title {
+                  text
+                }
+                serie_cover {
+                  url
+                }
+              }
+            }
+          }
+        }
+        grouped_books_by_serie: allPrismicBook(sort: {fields: data___order}) {
+          group(field: data___link___uid) {
+            edges {
+              node {
+                uid
+                data {
+                  order
+                  book_title {
+                    text
+                  }
+                  link {
+                    uid
+                    document {
+                      data {
+                        serie_title {
+                          text
+                        }
+                      }
+                    }
+                  }
+                  book_affiniate_link {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={(data) => (
+      <Nav series={data.series} grouped_books_by_serie={data.grouped_books_by_serie} {...props} />
+    )}
+  />
 )
+
