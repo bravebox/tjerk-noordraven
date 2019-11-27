@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet"
 
 const Book = ({ data: { prismicBook } }) => {
   const { data } = prismicBook
+  let affiliate_link = data.book_affiniate_link.url || false;
   return (
     <React.Fragment>
       <Helmet>
@@ -30,7 +31,12 @@ const Book = ({ data: { prismicBook } }) => {
                   className="u-pt-1 u-pt-2 u-color--white u-lead"
                   dangerouslySetInnerHTML={{ __html: data.book_description.html }}>
                 </p>
-                <a href={data.book_affiniate_link.url} target="_blank" rel="noopener noreferrer" className="u-btn-primary u-btn-primary--sml">Bestel nu</a>
+                <a 
+                  v-if="affiliate_link" 
+                  href={affiliate_link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="u-btn-primary u-btn-primary--sml">Bestel nu</a>
               </div>
             </div>
           </div>

@@ -17,7 +17,6 @@ function BookList(props) {
         <div key={`item-${index}`} className="vs-serie-menu__book">
           <span>{book.node.data.book_title.text} </span>
           <Link to={`/${book.node.uid}`}>bekijk </Link>
-          <a href={book.node.data.book_affiniate_link.url} rel="noopener noreferrer" target="_blank">bestel </a>
         </div>
       ))
     }
@@ -132,9 +131,6 @@ export default props => (
                         }
                       }
                     }
-                  }
-                  book_affiniate_link {
-                    url
                   }
                 }
               }
