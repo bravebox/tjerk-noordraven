@@ -45,7 +45,7 @@
     margin-top: 24px;
   }
 
-  & > a {
+  & a {
     color: #fff;
     font-weight: 100;
     font-size: 1.125rem;
@@ -80,12 +80,16 @@
     }
   }
 
-  & > a.is-active,
-  & > a:active,
-  & > a:focus,
-  & > a:hover {
+  & a.is-active,
+  & a:active,
+  & a:focus,
+  & a:hover {
     color: $primary;
   }
+}
+
+.vs-nav--m a::before {
+  content: '- ';
 }
 
 .vs-nav-trigger {

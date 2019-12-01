@@ -8,8 +8,15 @@ const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
   const { data } = prismicSerie;
   const bookItems = allPrismicBook.edges;
 
+  /** Prismic: HTML markup */
   const createHtmlMarkUp = () => {
     return {__html: data.serie_content.html}
+  }
+
+  /** Prismic: If a banner is defined display banner */
+  let bannerUrl = false;
+  if (data.serie_banner) {
+    bannerUrl = data.serie_banner.url;
   }
 
   return (
@@ -26,7 +33,8 @@ const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
             <div className="vs-copy u-text--c">
               <div className="vs-pagebanner">
                 <img
-                  src={`/img/${prismicSerie.uid}.png`}
+                  hidden={!bannerUrl}
+                  src={bannerUrl}
                   alt="Banner"
                 />
               </div>
@@ -58,6 +66,9 @@ export const pageQuery = graphql`
         }
         serie_content {
           html
+        }
+        serie_banner {
+          url
         }
       }
     }

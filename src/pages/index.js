@@ -69,7 +69,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    series: allPrismicSerie {
+    series: allPrismicSerie(sort: {fields: data___order}) {
       edges {
         node {
           uid
