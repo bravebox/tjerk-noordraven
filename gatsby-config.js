@@ -14,6 +14,15 @@ module.exports = {
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
     },
+    // {
+    //   resolve: 'gatsby-source-prismic-graphql',
+    //   options: {
+    //     repositoryName: 'tjerknoordraven',
+    //     defaultLang: 'nl-NL',
+    //     accessToken: `${process.env.API_KEY}`,
+    //   },
+    // },
+
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

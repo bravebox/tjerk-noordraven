@@ -2,34 +2,32 @@ const path = require("path")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const prismicContent = await graphql(`
-    {
-      allPrismicSerie {
-        edges {
-          node {
-            id
-            uid
-          }
-        }
-      }
-      allPrismicBook {
-        edges {
-          node {
-            id
-            uid
-          }
-        }
-      }
-      allPrismicPage {
-        edges {
-          node {
-            id
-            uid
-          }
+  const prismicContent = await graphql(`{
+    allPrismicSerie {
+      edges {
+        node {
+          id
+          uid
         }
       }
     }
-  `)
+    allPrismicBook {
+      edges {
+        node {
+          id
+          uid
+        }
+      }
+    }
+    allPrismicPage {
+      edges {
+        node {
+          id
+          uid
+        }
+      }
+    }
+  }`)
 
   // Serie
   const serieTemplate = path.resolve("src/templates/serie.jsx")
