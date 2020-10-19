@@ -15,7 +15,7 @@ const Index = ({data}) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>{context._meta.title}</title>
-        <meta name="description" content="De officiële website van kinderboekenschrijver Tjerk Noordraven, auteur van o.a. De Engste Serie Ooit en Giel en de Geesten: horror voor kinderen." />
+        <meta name="description" content="Tjerk Noordraven, schrijver van spannende kinderboeken als De Engste Serie Ooit en Monster Zoo. Informatie, boeken, boekbespreking tips, schrijversbezoek." />
         <link rel="canonical" href="http://www.tjerknoordraven.com/" />
       </Helmet>
       <Home series={data.series} grouped_books_by_serie={data.grouped_books_by_serie}>
