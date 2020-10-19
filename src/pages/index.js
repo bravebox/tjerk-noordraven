@@ -10,12 +10,16 @@ import SiteContext from '../context/SiteContext'
 
 const Index = ({data}) => {
   const context = useContext(SiteContext);
+
+  let meta_title = data.home.data.meta_title.text || context._meta.title;
+  let meta_desc = data.home.data.meta_description.text || "Tjerk Noordraven, schrijver van spannende kinderboeken als De Engste Serie Ooit en Monster Zoo. Informatie, boeken, boekbespreking tips, schrijversbezoek.";
+
   return (
     <React.Fragment>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{context._meta.title}</title>
-        <meta name="description" content="Tjerk Noordraven, schrijver van spannende kinderboeken als De Engste Serie Ooit en Monster Zoo. Informatie, boeken, boekbespreking tips, schrijversbezoek." />
+        <title>{meta_title}</title>
+        <meta name="description" content={meta_desc} />
         <link rel="canonical" href="http://www.tjerknoordraven.com/" />
       </Helmet>
       <Home series={data.series} grouped_books_by_serie={data.grouped_books_by_serie}>
@@ -66,6 +70,12 @@ export const pageQuery = graphql`
         about_content {
           text
           html
+        }
+        meta_title {
+          text
+        }
+        meta_description {
+          text
         }
       }
     }
