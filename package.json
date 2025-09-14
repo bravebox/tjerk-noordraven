@@ -5,14 +5,16 @@
   "version": "1.0.2",
   "license": "MIT",
   "scripts": {
-    "deploy": "rm -Rf .cache && gatsby build --prefix-paths && gh-pages -d public",
-    "build": "rm -Rf .cache && gatsby build",
-    "develop": "rm -Rf .cache && gatsby develop",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "rm -Rf .cache && npm run develop",
-    "serve": "rm -Rf .cache && gatsby serve"
+    "start": "npm run develop",
+    "serve": "gatsby serve"
   },
   "dependencies": {
+    "babel-runtime": "^6.26.0",
     "gatsby": "^2.20.22",
     "gatsby-image": "^2.3.2",
     "gatsby-plugin-google-analytics": "^2.1.23",
@@ -21,13 +23,13 @@
     "gatsby-plugin-sitemap": "^2.2.17",
     "gatsby-source-prismic": "^2.2.0",
     "gatsby-source-prismic-graphql": "^3.6.2",
-    "node-sass": "^4.12.0",
     "prismic.io": "^3.6.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-custom-share": "^0.4.8",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "sass": "^1.69.5"
   },
   "devDependencies": {
     "dotenv": "^8.1.0",
