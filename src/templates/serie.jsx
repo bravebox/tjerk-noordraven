@@ -64,6 +64,9 @@ export const pageQuery = graphql`
         serie_description {
           text
         }
+        serie_long_description {
+          text
+        }
         serie_content {
           html
         }
@@ -84,6 +87,9 @@ export const pageQuery = graphql`
               html
             }
             book_cover {
+              url
+            }
+            book_cover_flat {
               url
             }
             book_affiniate_link {

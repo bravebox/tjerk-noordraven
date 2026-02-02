@@ -9,7 +9,7 @@ class SerieBooks extends React.Component {
         key={`item-${index}`}
         title={item.node.data.book_title.text}
         description={item.node.data.book_description.html}
-        cover={item.node.data.book_cover.url}
+        cover={item.node.data.book_cover_flat.url}
         aff_link={(item.node.data.book_affiniate_link) ? item.node.data.book_affiniate_link.url : '/'}
         uid={item.node.uid}>
       </SerieBook>
@@ -17,7 +17,7 @@ class SerieBooks extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="vs-series">{booksInSerie}</div>
+        <div className="vs-books">{booksInSerie}</div>
       </React.Fragment>
     )
   }

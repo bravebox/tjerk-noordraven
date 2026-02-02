@@ -2,24 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from "gatsby"
 
-/** Renders the series as a fallback menu withouh books */
-function SeriesMobile(props) {
-  const series = props.series;
-
-  const serieList = series.map((serie, index) => {
-    return (
-      <Link
-        className="vs-nav--series-m"
-        key={`item-${index}`}
-        to={`/${serie.node.uid}`}>{serie.node.data.serie_title.text}</Link>
-    )
-  });
-
-  return (
-    <div className="vs-nav--m">{serieList}</div>
-  );
-}
-
 /** Renders the list of series with books as a mobile menu */
 function BookList(props) {
   const series = props.series;
@@ -89,16 +71,9 @@ class Nav extends React.Component {
         <div className={`vs-nav-container header${this.state.menuOpen ? ' is-open' : ''}`} id="header">
           <button type="button" className="vs-nav-trigger" onClick={this.toggleMenu}>menu</button>
           <nav className="vs-nav">
-            <Link to="/">Home</Link>
-            <a href="/series" className="vs-nav--series-d" id="seriesBtn" onClick={this.toggleSerieMenu}>Series</a>
-            {/* <Link to="/de-engste-serie-ooit/" className="vs-nav--series-m">Engste serie ooit</Link>
-            <Link to="/monsterwereld/" className="vs-nav--series-m">Monsterwereld</Link> */}
-            <SeriesMobile series={this.props.series.edges} />
+            <Link to="/">Boeken</Link>
             <Link to="/over-mij">Over mij</Link>
-            <Link to="/optredens">Optredens</Link>
             <Link to="/agenda">Agenda</Link>
-            <Link to="/boekbespreking">Boekbespreking</Link>
-            <Link to="/contact">Contact</Link>
           </nav>
           <div className={`vs-series-menu vs-series-menu--${this.state.seriesMenuOpen}`}>
             <div className="vs-series-menu__bg">

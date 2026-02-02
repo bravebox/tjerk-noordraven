@@ -76,6 +76,9 @@ export const pageQuery = graphql`
         book_cover_xl {
           url
         }
+        book_cover_flat {
+          url
+        }
         book_affiniate_link {
           link_type
           url

@@ -22,19 +22,19 @@ const Index = ({data}) => {
         <meta name="description" content={meta_desc} />
         <link rel="canonical" href="http://www.tjerknoordraven.com/" />
       </Helmet>
-      <Home series={data.series} grouped_books_by_serie={data.grouped_books_by_serie}>
-        <PageBlock body={data.home.data.home_content.html}></PageBlock>
+      <Home>
+        {/* <PageBlock body={data.home.data.home_content.html}></PageBlock> */}
 
-        <PageBlockSpecial
+        {/* <PageBlockSpecial
           image="/img/tjerk-noordraven-home.png"
           title={data.home.data.about_title.text}
           content={data.home.data.about_content.html}
           link={data.home.data.about_link.url}
-        ></PageBlockSpecial>
+        ></PageBlockSpecial> */}
 
-        <PageBlock body={data.home.data.home_content_after.html}></PageBlock>
+        {/* <PageBlock body={data.home.data.home_content_after.html}></PageBlock> */}
 
-        <PageBlockSeries series={data.series}></PageBlockSeries>
+        <PageBlockSeries series={data.series} grouped_books_by_serie={data.grouped_books_by_serie}></PageBlockSeries>
       </Home>
     </React.Fragment>
   )
@@ -90,6 +90,9 @@ export const pageQuery = graphql`
             serie_description {
               text
             }
+            serie_long_description {
+              text
+            }
             serie_cover {
               url
             }
@@ -97,19 +100,34 @@ export const pageQuery = graphql`
         }
       }
     }
-    books: allPrismicBook {
-      edges {
-        node {
-          uid
-          data {
-            book_title {
-              text
-            }
-            book_description {
-              text
-            }
-            book_cover {
-              url
+    grouped_books_by_serie: allPrismicBook(sort: {fields: data___order}) {
+      group(field: data___link___uid) {
+        fieldValue
+        edges {
+          node {
+            uid
+            data {
+              book_title {
+                text
+              }
+              book_description {
+                html
+              }
+              book_cover {
+                url
+              }
+              book_cover_flat {
+                url
+              }
+              book_affiniate_link {
+                link_type
+                url
+                target
+              }
+              order
+              link {
+                uid
+              }
             }
           }
         }
