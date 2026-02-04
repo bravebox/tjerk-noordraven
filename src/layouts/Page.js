@@ -14,7 +14,7 @@ class Page extends React.Component {
 
     setTimeout(() => {
       this.setState({ showLoader: false });
-    }, 1200);
+    }, 600);
   }
 
   render() {

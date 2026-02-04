@@ -23,17 +23,7 @@ const Index = ({data}) => {
         <link rel="canonical" href="http://www.tjerknoordraven.com/" />
       </Helmet>
       <Home>
-        {/* <PageBlock body={data.home.data.home_content.html}></PageBlock> */}
-
-        {/* <PageBlockSpecial
-          image="/img/tjerk-noordraven-home.png"
-          title={data.home.data.about_title.text}
-          content={data.home.data.about_content.html}
-          link={data.home.data.about_link.url}
-        ></PageBlockSpecial> */}
-
-        {/* <PageBlock body={data.home.data.home_content_after.html}></PageBlock> */}
-
+        <PageBlock body={data.home.data.home_content.html}></PageBlock>
         <PageBlockSeries series={data.series} grouped_books_by_serie={data.grouped_books_by_serie}></PageBlockSeries>
       </Home>
     </React.Fragment>
@@ -50,25 +40,6 @@ export const pageQuery = graphql`
           text
         }
         home_content {
-          html
-        }
-        home_content_about {
-          html
-        }
-        home_content_after {
-          html
-        }
-        about_title {
-          html
-          text
-        }
-        about_link {
-          link_type
-          target
-          url
-        }
-        about_content {
-          text
           html
         }
         meta_title {
@@ -92,10 +63,12 @@ export const pageQuery = graphql`
             }
             serie_long_description {
               text
+              html
             }
             serie_cover {
               url
             }
+            show_read_more
           }
         }
       }

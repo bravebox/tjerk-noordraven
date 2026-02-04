@@ -1,4 +1,6 @@
-
+p {
+  line-height: 1.42;
+}
 
 .vs-agenda {
   display: flex;
@@ -70,6 +72,10 @@
   }
 }
 
+.vs-series-p {
+  font-size: .875rem;
+}
+
 .vs-serie-book {
   flex: 1 1 50%;
   max-width: 50%;
@@ -86,6 +92,7 @@
     }
     p {
       font-size: .750rem;
+      line-height: 1.42;
     }
   }
 }
