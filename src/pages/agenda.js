@@ -34,7 +34,7 @@ const Agenda = ({ data: { prismicAgenda } }) => {
               <div className="vs-copy">
                 <div className="vs-pagebanner">
                   <img
-                    src="/img/tjerk-noordraven-01.png"
+                    src="/img/banner-agenda.png"
                     alt="Banner"
                   />
                 </div>
