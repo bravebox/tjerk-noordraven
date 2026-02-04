@@ -50,10 +50,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    series: allPrismicSerie(sort: {fields: data___order}) {
+    series: allPrismicSerie(sort: {data: {order: ASC}}) {
       edges {
         node {
-          uid
+          url
           data {
             serie_title {
               text
@@ -73,12 +73,12 @@ export const pageQuery = graphql`
         }
       }
     }
-    grouped_books_by_serie: allPrismicBook(sort: {fields: data___order}) {
-      group(field: data___link___uid) {
+    grouped_books_by_serie: allPrismicBook(sort: {data: {order: ASC}}) {
+      group(field: {data: {link: {url: SELECT}}}) {
         fieldValue
         edges {
           node {
-            uid
+            url
             data {
               book_title {
                 text
@@ -99,7 +99,7 @@ export const pageQuery = graphql`
               }
               order
               link {
-                uid
+                url
               }
             }
           }

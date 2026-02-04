@@ -6,7 +6,7 @@ class SerieBooks extends React.Component {
       <React.Fragment>
         <div className="vs-copy u-text--c">
           <div className="vs-serie-book__img">
-            <a href={`/${this.props.uid}`}>
+            <a href={this.props.url}>
               <img
                 src={this.props.cover}
                 alt="Book Cover"

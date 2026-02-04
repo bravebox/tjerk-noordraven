@@ -1,0 +1,63 @@
+{
+  "Main": {
+    "book_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Book Title"
+      }
+    },
+    "book_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,strong,em",
+        "label": "Book Description"
+      }
+    },
+    "book_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,strong,em,hyperlink,list-item,o-list-item",
+        "label": "Book Content"
+      }
+    },
+    "book_cover": {
+      "type": "Image",
+      "config": {
+        "label": "Book Cover"
+      }
+    },
+    "book_cover_xl": {
+      "type": "Image",
+      "config": {
+        "label": "Book Cover XL"
+      }
+    },
+    "book_cover_flat": {
+      "type": "Image",
+      "config": {
+        "label": "Book Cover Flat"
+      }
+    },
+    "book_affiniate_link": {
+      "type": "Link",
+      "config": {
+        "label": "Book Affiliate Link"
+      }
+    },
+    "link": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["serie"],
+        "label": "Serie Link"
+      }
+    },
+    "order": {
+      "type": "Number",
+      "config": {
+        "label": "Order"
+      }
+    }
+  }
+}

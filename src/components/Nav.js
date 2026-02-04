@@ -9,7 +9,7 @@ function BookList(props) {
 
   const serieList = series.map((serie, index) => {
     const books = booksData.filter(result => {
-      return result.edges[0].node.data.link.uid === serie.node.uid;
+      return result.edges[0]?.node?.data?.link?.url === serie.node.url;
     });
 
     let booksBlock;
@@ -17,7 +17,7 @@ function BookList(props) {
       booksBlock = books[0].edges.map((book, index) => (
         <div key={`item-${index}`} className="vs-serie-menu__book">
           <span>{book.node.data.book_title.text} </span>
-          <Link to={`/${book.node.uid}`}>bekijk </Link>
+          <Link to={book.node.url}>bekijk </Link>
         </div>
       ))
     }
@@ -31,7 +31,7 @@ function BookList(props) {
           />
         </div>
         <div className="vs-serie-menu__details">
-          <h3>{serie.node.data.serie_title.text} <Link to={`/${serie.node.uid}`}>bekijk</Link></h3>
+          <h3>{serie.node.data.serie_title.text} <Link to={serie.node.url}>bekijk</Link></h3>
           {booksBlock}
         </div>
       </div>
@@ -92,10 +92,10 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        series: allPrismicSerie(sort: {fields: data___order}) {
+        series: allPrismicSerie(sort: {data: {order: ASC}}) {
           edges {
             node {
-              uid
+              url
               data {
                 serie_title {
                   text
@@ -107,25 +107,19 @@ export default props => (
             }
           }
         }
-        grouped_books_by_serie: allPrismicBook(sort: {fields: data___order}) {
-          group(field: data___link___uid) {
+        grouped_books_by_serie: allPrismicBook(sort: {data: {order: ASC}}) {
+          group(field: {data: {link: {url: SELECT}}}) {
+            fieldValue
             edges {
               node {
-                uid
+                url
                 data {
                   order
                   book_title {
                     text
                   }
                   link {
-                    uid
-                    document {
-                      data {
-                        serie_title {
-                          text
-                        }
-                      }
-                    }
+                    url
                   }
                 }
               }

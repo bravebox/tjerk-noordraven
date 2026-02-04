@@ -1,0 +1,56 @@
+{
+  "Main": {
+    "serie_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Serie Title"
+      }
+    },
+    "serie_description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Serie Description"
+      }
+    },
+    "serie_long_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,strong,em",
+        "label": "Serie Long Description"
+      }
+    },
+    "serie_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,strong,em,hyperlink,list-item,o-list-item",
+        "label": "Serie Content"
+      }
+    },
+    "serie_banner": {
+      "type": "Image",
+      "config": {
+        "label": "Serie Banner"
+      }
+    },
+    "serie_cover": {
+      "type": "Image",
+      "config": {
+        "label": "Serie Cover"
+      }
+    },
+    "show_read_more": {
+      "type": "Boolean",
+      "config": {
+        "label": "Show Read More"
+      }
+    },
+    "order": {
+      "type": "Number",
+      "config": {
+        "label": "Order"
+      }
+    }
+  }
+}

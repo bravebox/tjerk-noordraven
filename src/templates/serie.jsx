@@ -6,16 +6,19 @@ import { Helmet } from "react-helmet"
 
 const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
   const { data } = prismicSerie;
-  const bookItems = allPrismicBook.edges;
+  // Filter books that belong to this serie by matching link.url to serie url
+  const bookItems = allPrismicBook?.edges?.filter(
+    edge => edge.node.data.link?.url === prismicSerie.url
+  ) || [];
 
   /** Prismic: HTML markup */
   const createHtmlMarkUp = () => {
-    return {__html: data.serie_content.html}
+    return {__html: data.serie_content?.html || ''}
   }
 
   /** Prismic: If a banner is defined display banner */
   let bannerUrl = false;
-  if (data.serie_banner) {
+  if (data.serie_banner && data.serie_banner.url) {
     bannerUrl = data.serie_banner.url;
   }
 
@@ -25,7 +28,7 @@ const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
         <Helmet>
           <meta charSet="utf-8" />
           <title>{data.serie_title.text} - Tjerk Noordraven</title>
-          <link rel="canonical" href={`http://www.tjerknoordraven.com/${prismicSerie.uid}/`} />
+          <link rel="canonical" href={`http://www.tjerknoordraven.com${prismicSerie.url}`} />
           <meta name="description" content={data.serie_description.text} />
         </Helmet>
         <section className="vs-section vs-section--rock u-text--c u-pt-4">
@@ -62,9 +65,9 @@ const Serie = ({ data: { prismicSerie, allPrismicBook } }) => {
 export default Serie
 
 export const pageQuery = graphql`
-  query SerieBySlug($uid: String!) {
-    prismicSerie(uid: { eq: $uid }) {
-      uid
+  query SerieBySlug($id: String!) {
+    prismicSerie(id: { eq: $id }) {
+      url
       data {
         serie_title {
           text
@@ -85,10 +88,10 @@ export const pageQuery = graphql`
         show_read_more
       }
     }
-    allPrismicBook(filter: {data: {link: {uid: {eq: $uid}}}}, sort: {fields: data___order}) {
+    allPrismicBook(sort: {data: {order: ASC}}) {
       edges {
         node {
-          uid
+          url
           data {
             book_title {
               text
@@ -108,6 +111,9 @@ export const pageQuery = graphql`
               target
             }
             order
+            link {
+              url
+            }
           }
         }
       }

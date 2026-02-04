@@ -1,0 +1,31 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,strong,em",
+        "label": "Description"
+      }
+    },
+    "content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,strong,em,hyperlink,list-item,o-list-item",
+        "label": "Content"
+      }
+    },
+    "banner": {
+      "type": "Image",
+      "config": {
+        "label": "Banner"
+      }
+    }
+  }
+}

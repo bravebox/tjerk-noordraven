@@ -1,0 +1,40 @@
+{
+  "Main": {
+    "agenda_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Agenda Title"
+      }
+    },
+    "agenda_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,strong,em,hyperlink,list-item,o-list-item",
+        "label": "Agenda Content"
+      }
+    },
+    "agenda_item": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "agenda_item_title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading3",
+              "label": "Agenda Item Title"
+            }
+          },
+          "agenda_item_content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph,strong,em,hyperlink",
+              "label": "Agenda Item Content"
+            }
+          }
+        },
+        "label": "Agenda Item"
+      }
+    }
+  }
+}

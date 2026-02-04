@@ -12,7 +12,7 @@ const Book = ({ data: { prismicBook } }) => {
         <meta charSet="utf-8" />
         <title>{data.book_title.text} - Tjerk Noordraven</title>
         <meta name="description" content={data.book_description.text} />
-        <link rel="canonical" href={`http://www.tjerknoordraven.com/${prismicBook.uid}`} />
+        <link rel="canonical" href={`http://www.tjerknoordraven.com${prismicBook.url}`} />
       </Helmet>
       <PageLayout>
         <section className="vs-section vs-section--rock u-mb-4 visible-md visible-lg">
@@ -56,9 +56,9 @@ const Book = ({ data: { prismicBook } }) => {
 export default Book
 
 export const pageQuery = graphql`
-  query BookBySlug($uid: String!) {
-    prismicBook(uid: { eq: $uid }) {
-      uid
+  query BookBySlug($id: String!) {
+    prismicBook(id: { eq: $id }) {
+      url
       data {
         book_title {
           text

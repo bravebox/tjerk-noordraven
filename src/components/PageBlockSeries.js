@@ -13,7 +13,7 @@ class PageBlockSeries extends React.Component {
       : [];
  
     const SerieItems = seriesEdges.map((item, index) => {
-      const matchedGroup = grouped.find(g => g.fieldValue === item.node.uid);
+      const matchedGroup = grouped.find(g => g.fieldValue === item.node.url);
 
       return (
         <div key={`item-${index}`} className="vs-series-wrap">
@@ -22,7 +22,7 @@ class PageBlockSeries extends React.Component {
             <div className="vs-series-p" dangerouslySetInnerHTML={{ __html: item.node.data.serie_long_description.html }} />
             {/* != false is only because it can also be null, strange Prismic behavior */}
             {item.node.data.show_read_more != false && (
-              <a href={`/${item.node.uid}`} className="u-btn-ghost">
+              <a href={item.node.url} className="u-btn-ghost">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="currentColor" d="m18 6l-1.43 1.393L24.15 15H4v2h20.15l-7.58 7.573L18 26l10-10z"/></svg>
                 <span>Lees meer</span>
               </a>

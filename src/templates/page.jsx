@@ -11,7 +11,7 @@ const Page = ({ data: { prismicPage } }) => {
         <meta charSet="utf-8" />
         <title>{data.title.text} - Tjerk Noordraven</title>
         <meta name="description" content={data.description.text} />
-        <link rel="canonical" href={`http://www.tjerknoordraven.com/${prismicPage.uid}/`} />
+        <link rel="canonical" href={`http://www.tjerknoordraven.com${prismicPage.url}`} />
       </Helmet>
       <PageLayout>
         <div className="row u-pt-4 u-pb-4">
@@ -37,9 +37,9 @@ const Page = ({ data: { prismicPage } }) => {
 export default Page
 
 export const pageQuery = graphql`
-  query PageBySlug($uid: String!) {
-    prismicPage(uid: { eq: $uid }) {
-      uid
+  query PageBySlug($id: String!) {
+    prismicPage(id: { eq: $id }) {
+      url
       data {
         title {
           text
