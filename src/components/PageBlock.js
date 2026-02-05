@@ -12,6 +12,7 @@ class PageBlock extends React.Component {
                   {this.props.title}
                 </h1>
                 <main
+                  className="u-text--c u-pt-4 u-pb-4 home-block"
                   dangerouslySetInnerHTML={{
                     __html: this.props.body,
                   }}
