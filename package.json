@@ -35,6 +35,9 @@
     "dotenv": "^16.4.7",
     "prettier": "^3.4.2"
   },
+  "overrides": {
+    "axios": "^1.17.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/bravebox/tjerknoordraven-prismic/"
